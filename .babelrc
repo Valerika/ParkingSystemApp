@@ -1,0 +1,12 @@
+{
+  "env": {
+    "test": {
+      "plugins": [],
+      "presets": ["es2015", "stage-0", "react"],
+    },
+    "development": {
+      "plugins": ["transform-class-properties"],
+      "presets": ["es2015", "stage-0", "react", "react-hmre", "latest"],
+    },
+  }
+}
