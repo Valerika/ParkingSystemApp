@@ -9,8 +9,8 @@ class ParkingPlace extends Component {
 
   render() {
     const places = this.props.places;
-    let placeBlock = places.map((place) => {
-          return <div key={place.id} id={place.id} className={place.data_type +' ' + place.state_place}>{place.id}</div>
+    let placeBlock = places.map((place, i) => {
+          return <div key={i} id={place.id} className={place.data_type +' ' + place.state_place}>{place.id}</div>
         })
     return (
         <div className='parking_place'>
