@@ -9,15 +9,15 @@ class ButtonExit extends Component {
           modalOpened: false
     };
     this.modalToggle = this.modalToggle.bind(this);
+    this.handleDeleteClick = this.handleDeleteClick.bind(this);
 }
 
 modalToggle () {
   this.setState({ modalOpened: !this.state.modalOpened });
 }
 
-onDeleteBtnClick(){
-    deleteAuto('free')
-//     console.log(deleteAuto('free'))
+handleDeleteClick(){
+    this.props.onDeleteBtnClick('free')
 }
     render() {
         const containerClass = this.state.modalOpened ? 'modal-container modal-container-active' : 'modal-container';
@@ -28,9 +28,9 @@ onDeleteBtnClick(){
                     <div className='modal-body select_auto'>
                         <h3>Choose type auto:</h3>
                         <div className='select_auto_container'>
-                            <button className='change_auto sedan_select' value='sedan' onClick={this.onDeleteBtnClick}>Sedan</button>
-                            <button className='change_auto disabled_select' value='disabled' onClick={this.onDeleteBtnClick}>Disabled</button>
-                            <button className='change_auto truck_select' value='truck' onClick={this.onDeleteBtnClick}>Truck</button>
+                            <button className='change_auto sedan_select' value='sedan' onClick={this.handleDeleteClick}>Sedan</button>
+                            <button className='change_auto disabled_select' value='disabled' onClick={this.handleDeleteClick}>Disabled</button>
+                            <button className='change_auto truck_select' value='truck' onClick={this.handleDeleteClick}>Truck</button>
                         </div>
                      </div>
                  </div>
@@ -42,7 +42,8 @@ onDeleteBtnClick(){
 
 const mapDispatchToProps = (dispatch) =>
     ({
-        onDeleteBtnClick: (type_auto) => dispatch(deleteAuto(type_auto))
+        onDeleteBtnClick: () => dispatch(deleteAuto('free'))
     })
 
-export default connect(mapDispatchToProps)(ButtonExit);
+export default connect(null, mapDispatchToProps)(ButtonExit);
+
