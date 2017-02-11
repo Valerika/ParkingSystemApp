@@ -215,7 +215,7 @@ const statusBusy = (places, action)  => (
             });
     })
 );
-console.log(Object.keys(initialState.places[0]));
+
 const statusFree = (places)  => (
     Object.keys(places).map(place => {
         if (place.state_place !== 'free') {
