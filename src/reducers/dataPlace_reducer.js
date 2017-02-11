@@ -206,9 +206,9 @@ const initialState = {
 }
 
 const statusBusy = (places, action)  => (
-    Object.keys(places).map(place => {
+    places.map(place => {
         if (place.state_place === 'free') {
-            return place;
+            return places;
         }
         return Object.assign({}, place, {
                 state_place : action.payload,
@@ -217,9 +217,9 @@ const statusBusy = (places, action)  => (
 );
 
 const statusFree = (places)  => (
-    Object.keys(places).map(place => {
+    places.map(place => {
         if (place.state_place !== 'free') {
-            return place;
+            return places;
         }
         return Object.assign({}, place, {
                 state_place : 'free',
