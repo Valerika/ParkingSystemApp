@@ -17,7 +17,7 @@ class ButtonEntry extends Component {
 
     onAddBtnClick(event){
         addAuto(event.target.value)
-        console.log(addAuto(event.target.value))
+     //   console.log(addAuto(event.target.value))
     }
     render() {
         const containerClass = this.state.modalOpened ? 'modal-container modal-container-active' : 'modal-container';
