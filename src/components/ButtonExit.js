@@ -17,7 +17,7 @@ modalToggle () {
 
 onDeleteBtnClick(){
     deleteAuto('free')
-    console.log(deleteAuto('free'))
+//     console.log(deleteAuto('free'))
 }
     render() {
         const containerClass = this.state.modalOpened ? 'modal-container modal-container-active' : 'modal-container';
