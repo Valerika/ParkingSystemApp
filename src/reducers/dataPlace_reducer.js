@@ -206,26 +206,33 @@ const initialState = {
 }
 
 const statusBusy = (places, action)  => (
-    places.map(place => {
-        if (place.state_place === 'free') {
-            return places;
-        }
-        return Object.assign({}, place, {
-                state_place : action.payload,
-            });
+        places.map(place => {
+            for (var state_place of Object.keys(place)) {
+                if (state_place === 'free') {
+                    return place;
+                }
+            }
+            return Object.assign({}, place, {
+                    state_place : action.payload
+                });
+
     })
 );
 
-const statusFree = (places)  => (
-    places.map(place => {
-        if (place.state_place !== 'free') {
-            return places;
-        }
-        return Object.assign({}, place, {
-                state_place : 'free',
-            });
+const statusFree = (places, action)  => (
+        places.map(place => {
+            for (var state_place in place) {
+                if (state_place ==='sedan' || state_place ==='disabled'|| state_place ==='truck') {
+                    return place;
+                }
+            }
+            return Object.assign({}, place, {
+                    state_place : action.payload
+                });
+
     })
 );
+
 
 export default function dataPlaceCreate(state = initialState, action) {
     switch(action.type) {
