@@ -5,7 +5,7 @@ const initialState = {
        {
           id:1,
           data_type:'disabled_place',
-          state_place:'disabled'
+          state_place:'free'
        },
        {
           id:2,
